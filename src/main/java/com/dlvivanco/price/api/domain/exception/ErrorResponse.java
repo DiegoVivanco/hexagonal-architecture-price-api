@@ -1,15 +1,16 @@
 package com.dlvivanco.price.api.domain.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class ErrorResponse {
-
-    public ErrorResponse(String message, List<String> details) {
-        super();
-        this.message = message;
-        this.details = details;
-    }
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ErrorResponse implements Serializable {
     private String message;
     private List<String> details;
 }
