@@ -37,8 +37,8 @@ public class PriceControllerTest {
 
     @Test
     @DisplayName("Test 1: petición a las 10:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
-    public void testPricesOne() throws Exception {
-        this.mockMvc.perform(get("/prices?applicationDate=2020-06-14 10:00:00&productId=35455&brandId=1")
+    public void givenADate20200614T100000_whenFindByBrandIdProductIdBetweenDates_thenReturnAPriceWithHigherPriority() throws Exception {
+        this.mockMvc.perform(get("/price?applicationDate=2020-06-14-10:00:00&productId=35455&brandId=1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -51,8 +51,8 @@ public class PriceControllerTest {
 
     @Test
     @DisplayName("Test 2: petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
-    public void testPricesTwo() throws Exception {
-        this.mockMvc.perform(get("/prices?applicationDate=2020-06-14 16:00:00&productId=35455&brandId=1")
+    public void givenADate20200614T160000_whenFindByBrandIdProductIdBetweenDates_thenReturnAPriceWithHigherPriority() throws Exception {
+        this.mockMvc.perform(get("/price?applicationDate=2020-06-14-16:00:00&productId=35455&brandId=1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -65,8 +65,8 @@ public class PriceControllerTest {
 
     @Test
     @DisplayName("Test 3: petición a las 21:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
-    public void testPricesThree() throws Exception {
-        this.mockMvc.perform(get("/prices?applicationDate=2020-06-14 21:00:00&productId=35455&brandId=1")
+    public void givenADate20200614T210000_whenFindByBrandIdProductIdBetweenDates_thenReturnAPriceWithHigherPriority() throws Exception {
+        this.mockMvc.perform(get("/price?applicationDate=2020-06-14-21:00:00&productId=35455&brandId=1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -78,8 +78,8 @@ public class PriceControllerTest {
 
     @Test
     @DisplayName("Test 4: petición a las 10:00 del día 15 del producto 35455 para la brand 1 (ZARA)")
-    public void testPricesFour() throws Exception {
-        this.mockMvc.perform(get("/prices?applicationDate=2020-06-15 10:00:00&productId=35455&brandId=1")
+    public void givenADate20200615T100000_whenFindByBrandIdProductIdBetweenDates_thenReturnAPriceWithHigherPriority() throws Exception {
+        this.mockMvc.perform(get("/price?applicationDate=2020-06-15-10:00:00&productId=35455&brandId=1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -91,8 +91,8 @@ public class PriceControllerTest {
 
     @Test
     @DisplayName("Test 5: petición a las 21:00 del día 16 del producto 35455 para la brand 1 (ZARA)")
-    public void testPricesFive() throws Exception {
-        this.mockMvc.perform(get("/prices?applicationDate=2020-06-16 21:00:00&productId=35455&brandId=1")
+    public void givenADate20200616T210000_whenFindByBrandIdProductIdBetweenDates_thenReturnAPriceWithHigherPriority() throws Exception {
+        this.mockMvc.perform(get("/price?applicationDate=2020-06-16-21:00:00&productId=35455&brandId=1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
