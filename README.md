@@ -1,6 +1,30 @@
 # hexagonal-architecture-price-api
 Demo web service using hexagonal architecture for e-commerce company
 
+REST service that exposes an endpoint /price to check the best price of a product according to the date
+
+Resource [GET] /price
+
+Params:
+* applicationDate: date you want to check.
+* brandId:  id the brand we want to check.
+* productId: id the product we want to check.
+
+Response:
+
+     {
+       "productId": 35455,
+       "brandId": 1,
+       "priceList": 1,
+       "startDate": "2020-06-14-00.00.00",
+       "endDate": "2020-12-31-23.59.59",
+       "price": 35.5
+     }
+
+
+Example:
+[GET] /price?applicationDate=2020-06-14-16:00:00&productId=35455&brandId=1
+
 ## Build the project
 
 Run the following command inside projects root directory
