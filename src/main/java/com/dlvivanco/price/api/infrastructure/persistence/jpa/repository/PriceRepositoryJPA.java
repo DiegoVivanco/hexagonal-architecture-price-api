@@ -13,7 +13,7 @@ public interface PriceRepositoryJPA extends JpaRepository<PriceEntity, Integer> 
             + " (:applicationDate BETWEEN p.startDate AND p.endDate)"
             + " AND (:brandId =  p.brandId)"
             + " AND (:productId =  p.productId)"
-            + " ORDER BY p.priority"
+            + " ORDER BY p.priority DESC"
     )
     List<PriceEntity> findByApplicationDateBrandIdAndProductId(LocalDateTime applicationDate, Integer brandId, Integer productId);
 }

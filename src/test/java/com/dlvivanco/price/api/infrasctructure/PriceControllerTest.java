@@ -59,7 +59,7 @@ public class PriceControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$").exists())
                 .andExpect(MockMvcResultMatchers.jsonPath(PRODUCT_ID_JSON_PATH).value(PRODUCT_ID))
                 .andExpect(MockMvcResultMatchers.jsonPath(BRAND_ID_JSON_PATH).value(BRAND_ZARA_CODE))
-                .andExpect(MockMvcResultMatchers.jsonPath(PRICE_JSON_PATH).value(35.5));
+                .andExpect(MockMvcResultMatchers.jsonPath(PRICE_JSON_PATH).value(25.45));
 
     }
 
@@ -86,7 +86,7 @@ public class PriceControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$").exists())
                 .andExpect(MockMvcResultMatchers.jsonPath(PRODUCT_ID_JSON_PATH).value(PRODUCT_ID))
                 .andExpect(MockMvcResultMatchers.jsonPath(BRAND_ID_JSON_PATH).value(BRAND_ZARA_CODE))
-                .andExpect(MockMvcResultMatchers.jsonPath(PRICE_JSON_PATH).value(35.5));
+                .andExpect(MockMvcResultMatchers.jsonPath(PRICE_JSON_PATH).value(30.5));
     }
 
     @Test
@@ -99,7 +99,7 @@ public class PriceControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$").exists())
                 .andExpect(MockMvcResultMatchers.jsonPath(PRODUCT_ID_JSON_PATH).value(PRODUCT_ID))
                 .andExpect(MockMvcResultMatchers.jsonPath(BRAND_ID_JSON_PATH).value(BRAND_ZARA_CODE))
-                .andExpect(MockMvcResultMatchers.jsonPath(PRICE_JSON_PATH).value(35.5));
+                .andExpect(MockMvcResultMatchers.jsonPath(PRICE_JSON_PATH).value(38.95));
     }
 
 }
