@@ -16,6 +16,6 @@ public class PriceService {
     private final PricePersistencePort pricePersistencePort;
     
     public Price findByApplicationDateBrandIdAndProductId(LocalDateTime applicationDate, Integer brandId, Integer productId) {
-        return pricePersistencePort.findByApplicationDateBrandIdAndProductId(applicationDate, brandId, productId);
+        return this.pricePersistencePort.findByApplicationDateBrandIdAndProductId(applicationDate, brandId, productId);
     }
 }

@@ -31,21 +31,17 @@ public class PriceServiceTest {
 
     @BeforeAll
     public static void setup() {
-        price1 = new Price(1,1, LocalDateTime.parse("2020-06-14-00.00.00",formatter),
-                LocalDateTime.parse("2020-12-31-23.59.59",formatter),1,35455,0,35.5,
-                "EUR",LocalDateTime.parse("2020-03-26-14.49.07",formatter),"user1");
+        price1 = new Price(35455,1, 1, LocalDateTime.parse("2020-06-14-00.00.00",formatter),
+                LocalDateTime.parse("2020-12-31-23.59.59",formatter),35.5);
 
-        price2 = new Price(2,1, LocalDateTime.parse("2020-06-14-15.00.00",formatter),
-                LocalDateTime.parse("2020-06-14-18.30.00",formatter),2,35455,1,25.45,
-                "EUR",LocalDateTime.parse("2020-05-26-15.38.22",formatter),"user1");
+        price2 = new Price(35455,1,2, LocalDateTime.parse("2020-06-14-15.00.00",formatter),
+                LocalDateTime.parse("2020-06-14-18.30.00",formatter),25.45);
 
-        price3 = new Price(3,1, LocalDateTime.parse("2020-06-15-00.00.00",formatter),
-                LocalDateTime.parse("2020-06-15-11.00.00",formatter),3,35455,1,30.5,
-                "EUR",LocalDateTime.parse("2020-05-26-15.38.22",formatter),"user1");
+        price3 = new Price(35455,1,3, LocalDateTime.parse("2020-06-15-00.00.00",formatter),
+                LocalDateTime.parse("2020-06-15-11.00.00",formatter),30.5);
 
-        price4 = new Price(4,1, LocalDateTime.parse("2020-06-15-16.00.00",formatter),
-                LocalDateTime.parse("2020-12-31-23.59.59",formatter),4,35455,1,38.95,
-                "EUR",LocalDateTime.parse("2020-06-02-10.14.00",formatter),"user1");
+        price4 = new Price(35455,1,4, LocalDateTime.parse("2020-06-15-16.00.00",formatter),
+                LocalDateTime.parse("2020-12-31-23.59.59",formatter),38.95);
     }
 
     @Test

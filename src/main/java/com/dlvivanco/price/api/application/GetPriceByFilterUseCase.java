@@ -14,6 +14,6 @@ public class GetPriceByFilterUseCase {
     private final PriceService priceService;
 
     public Price getPriceByFilter(LocalDateTime applicationDate, Integer brandId, Integer productId) {
-        return priceService.findByApplicationDateBrandIdAndProductId(applicationDate,brandId,productId);
+        return this.priceService.findByApplicationDateBrandIdAndProductId(applicationDate,brandId,productId);
     }
 }

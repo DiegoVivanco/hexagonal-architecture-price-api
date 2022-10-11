@@ -8,48 +8,21 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class PriceMapper {
-    
-    public PriceEntity toEntity(Price project){
-        if(project == null){
-            return null;
-        }
-        
-        PriceEntity.PriceEntityBuilder projectEntity = PriceEntity.builder();
-        
-        projectEntity.id(project.getId());
-        projectEntity.brandId(project.getBrandId());
-        projectEntity.startDate(project.getStartDate());
-        projectEntity.endDate(project.getEndDate());
-        projectEntity.priceList(project.getPriceList());
-        projectEntity.productId(project.getProductId());
-        projectEntity.priority(project.getPriority());
-        projectEntity.price(project.getPrice());
-        projectEntity.currency(project.getCurrency());
-        projectEntity.lastUpdate(project.getLastUpdate());
-        projectEntity.lastUpdateBy(project.getLastUpdateBy());
-        
-        return projectEntity.build();
-    }
 
-    public Price toDto(PriceEntity projectEntity){
-        if(projectEntity == null){
+    public Price toDto(PriceEntity priceEntity){
+        if(priceEntity == null){
             return null;
         }
 
-        Price.PriceBuilder project = Price.builder();
+        Price.PriceBuilder price = Price.builder();
 
-        project.id(projectEntity.getId());
-        project.brandId(projectEntity.getBrandId());
-        project.startDate(projectEntity.getStartDate());
-        project.endDate(projectEntity.getEndDate());
-        project.priceList(projectEntity.getPriceList());
-        project.productId(projectEntity.getProductId());
-        project.priority(projectEntity.getPriority());
-        project.price(projectEntity.getPrice());
-        project.currency(projectEntity.getCurrency());
-        project.lastUpdate(projectEntity.getLastUpdate());
-        project.lastUpdateBy(projectEntity.getLastUpdateBy());
+        price.brandId(priceEntity.getBrandId());
+        price.startDate(priceEntity.getStartDate());
+        price.endDate(priceEntity.getEndDate());
+        price.priceList(priceEntity.getPriceList());
+        price.productId(priceEntity.getProductId());
+        price.price(priceEntity.getPrice());
 
-        return project.build();
+        return price.build();
     }
 }
