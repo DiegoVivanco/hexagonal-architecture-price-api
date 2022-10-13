@@ -1,4 +1,4 @@
-package com.dlvivanco.price.api.domain.exception;
+package com.dlvivanco.price.api.infrastructure.rest.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

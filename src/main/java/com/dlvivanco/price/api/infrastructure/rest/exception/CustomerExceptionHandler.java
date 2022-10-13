@@ -1,16 +1,23 @@
-package com.dlvivanco.price.api.domain.exception;
+package com.dlvivanco.price.api.infrastructure.rest.exception;
 
+import com.dlvivanco.price.api.domain.exception.PriceNotFoundException;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.core.convert.ConversionFailedException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class CustomerExceptionHandler extends ResponseEntityExceptionHandler {
@@ -41,6 +48,24 @@ public class CustomerExceptionHandler extends ResponseEntityExceptionHandler {
         String message = String.format("'%s' should be a valid '%s' and '%s' isn't",
                 name, type, value);
         ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.getReasonPhrase(), List.of(message));
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    private ResponseEntity<ErrorResponse> handleConstraintViolationException(ConstraintViolationException ex) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.getReasonPhrase(), List.of(ex.getLocalizedMessage()));
+        return ResponseEntity.badRequest().body(error);
+    }
+    
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        List<String> errorList = ex
+                .getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.toList());
+        ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.getReasonPhrase(), errorList);
         return ResponseEntity.badRequest().body(error);
     }
 }
