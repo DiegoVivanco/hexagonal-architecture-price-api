@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 public class PriceFilterDto {
 
-    @NotNull
+    @NotNull(message = "format date: yyyy-MM-dd-HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd-HH:mm:ss")
     private LocalDateTime applicationDate;
     @NotNull
