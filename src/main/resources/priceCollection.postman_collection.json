@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "1898af95-b30b-49ce-8151-684571901786",
-		"name": "PriceTestCollection",
+		"name": "PriceCollection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21953219"
 	},
@@ -29,14 +29,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/prices?productId=35455&applicationDate=2020-06-14 10:00:00&brandId=1",
+					"raw": "http://localhost:8080/price?productId=35455&applicationDate=2020-06-14-10:00:00&brandId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"prices"
+						"price"
 					],
 					"query": [
 						{
@@ -45,7 +45,7 @@
 						},
 						{
 							"key": "applicationDate",
-							"value": "2020-06-14 10:00:00"
+							"value": "2020-06-14-10:00:00"
 						},
 						{
 							"key": "brandId",
@@ -79,14 +79,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/prices?productId=35455&applicationDate=2020-06-14 16:00:00&brandId=1",
+					"raw": "http://localhost:8080/price?productId=35455&applicationDate=2020-06-14-16:00:00&brandId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"prices"
+						"price"
 					],
 					"query": [
 						{
@@ -95,7 +95,7 @@
 						},
 						{
 							"key": "applicationDate",
-							"value": "2020-06-14 16:00:00"
+							"value": "2020-06-14-16:00:00"
 						},
 						{
 							"key": "brandId",
@@ -129,14 +129,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/prices?productId=35455&applicationDate=2020-06-14 21:00:00&brandId=1",
+					"raw": "http://localhost:8080/price?productId=35455&applicationDate=2020-06-14-21:00:00&brandId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"prices"
+						"price"
 					],
 					"query": [
 						{
@@ -145,7 +145,7 @@
 						},
 						{
 							"key": "applicationDate",
-							"value": "2020-06-14 21:00:00"
+							"value": "2020-06-14-21:00:00"
 						},
 						{
 							"key": "brandId",
@@ -179,14 +179,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/prices?productId=35455&applicationDate=2020-06-15 10:00:00&brandId=1",
+					"raw": "http://localhost:8080/price?productId=35455&applicationDate=2020-06-15-10:00:00&brandId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"prices"
+						"price"
 					],
 					"query": [
 						{
@@ -195,7 +195,7 @@
 						},
 						{
 							"key": "applicationDate",
-							"value": "2020-06-15 10:00:00"
+							"value": "2020-06-15-10:00:00"
 						},
 						{
 							"key": "brandId",
@@ -229,14 +229,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/prices?productId=35455&applicationDate=2020-06-15 21:00:00&brandId=1",
+					"raw": "http://localhost:8080/price?productId=35455&applicationDate=2020-06-15-21:00:00&brandId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"prices"
+						"price"
 					],
 					"query": [
 						{
@@ -245,7 +245,7 @@
 						},
 						{
 							"key": "applicationDate",
-							"value": "2020-06-15 21:00:00"
+							"value": "2020-06-15-21:00:00"
 						},
 						{
 							"key": "brandId",
@@ -275,14 +275,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/prices?productId=35455&applicationDate=2020-06-15 21:00:00&brandId=2",
+					"raw": "http://localhost:8080/price?productId=35455&applicationDate=2020-06-15-21:00:00&brandId=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"prices"
+						"price"
 					],
 					"query": [
 						{
@@ -291,7 +291,7 @@
 						},
 						{
 							"key": "applicationDate",
-							"value": "2020-06-15 21:00:00"
+							"value": "2020-06-15-21:00:00"
 						},
 						{
 							"key": "brandId",
@@ -321,14 +321,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/prices?productId=35455&applicationDate=aaa&brandId=2",
+					"raw": "http://localhost:8080/price?productId=35455&applicationDate=aaa&brandId=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"prices"
+						"price"
 					],
 					"query": [
 						{

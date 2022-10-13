@@ -74,4 +74,4 @@ Explore the following URL
 
 ## Postman collection for test the api
 
-Import postman collection inside src/main/resources/priceTestCollection.postman_collection.json directory
+Import postman collection inside src/main/resources/priceCollection.postman_collection.json directory
