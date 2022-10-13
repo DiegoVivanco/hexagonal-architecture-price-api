@@ -50,8 +50,6 @@ Now type the following url
 
 #### Healthcheck
 
-This Docker image has a healthcheck statement.
-
 It will be useful for:
 * Service status monitoring
 * Error recovery
