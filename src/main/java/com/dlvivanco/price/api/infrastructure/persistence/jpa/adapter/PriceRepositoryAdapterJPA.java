@@ -28,7 +28,7 @@ public class PriceRepositoryAdapterJPA implements PricePersistencePort {
             throw new PriceNotFoundException("the price of the product " + productId + " for the brand " + brandId +
                     " was not found on the requested date " + applicationDate);
         }
-        return this.priceMapper.toDto(priceEntity.get(0));
+        return this.priceMapper.toDto(priceEntity.stream().findFirst().get());
     }
     
 }
