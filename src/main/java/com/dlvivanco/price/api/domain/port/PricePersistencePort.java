@@ -3,10 +3,10 @@ package com.dlvivanco.price.api.domain.port;
 
 import com.dlvivanco.price.api.domain.model.Price;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 public interface PricePersistencePort {
     
-    Price findByApplicationDateBrandIdAndProductId(LocalDateTime applicationDate, Integer brandId, Integer productId);
+    List<Price> findByBrandIdAndProductId(Integer brandId, Integer productId);
 
 }

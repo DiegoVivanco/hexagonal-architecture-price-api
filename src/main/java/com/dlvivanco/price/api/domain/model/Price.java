@@ -21,6 +21,8 @@ public class Price implements Serializable {
 
     private Integer priceList;
 
+    private Integer priority;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd-HH.mm.ss", timezone = "Europe/Madrid")
     private LocalDateTime startDate;
 

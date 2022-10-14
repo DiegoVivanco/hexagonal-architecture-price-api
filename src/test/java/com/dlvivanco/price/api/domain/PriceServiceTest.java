@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,22 +32,22 @@ public class PriceServiceTest {
 
     @BeforeAll
     public static void setup() {
-        price1 = new Price(35455,1, 1, LocalDateTime.parse("2020-06-14-00.00.00",formatter),
+        price1 = new Price(35455,1, 1, 1, LocalDateTime.parse("2020-06-14-00.00.00",formatter),
                 LocalDateTime.parse("2020-12-31-23.59.59",formatter),35.5);
 
-        price2 = new Price(35455,1,2, LocalDateTime.parse("2020-06-14-15.00.00",formatter),
+        price2 = new Price(35455,1,2, 1,LocalDateTime.parse("2020-06-14-15.00.00",formatter),
                 LocalDateTime.parse("2020-06-14-18.30.00",formatter),25.45);
 
-        price3 = new Price(35455,1,3, LocalDateTime.parse("2020-06-15-00.00.00",formatter),
+        price3 = new Price(35455,1,3,1, LocalDateTime.parse("2020-06-15-00.00.00",formatter),
                 LocalDateTime.parse("2020-06-15-11.00.00",formatter),30.5);
 
-        price4 = new Price(35455,1,4, LocalDateTime.parse("2020-06-15-16.00.00",formatter),
+        price4 = new Price(35455,1,4,1, LocalDateTime.parse("2020-06-15-16.00.00",formatter),
                 LocalDateTime.parse("2020-12-31-23.59.59",formatter),38.95);
     }
 
     @Test
     public void test01__2020_06_14_1000_brandId_1_productId_35455() {
-        Mockito.when(mockRepository.findByApplicationDateBrandIdAndProductId(Mockito.any(),Mockito.any(),Mockito.any())).thenReturn(price1);
+        Mockito.when(mockRepository.findByBrandIdAndProductId(Mockito.any(),Mockito.any())).thenReturn(Collections.singletonList(price1));
         Price result = priceService.findByApplicationDateBrandIdAndProductId(
                 LocalDateTime.parse("2020-06-14-10.00.00",formatter),1,35455);
         assertEquals(1,result.getPriceList());
@@ -54,7 +55,7 @@ public class PriceServiceTest {
 
     @Test
     public void test02__2020_06_14_1600_brandId_1_productId_35455() {
-        Mockito.when(mockRepository.findByApplicationDateBrandIdAndProductId(Mockito.any(),Mockito.any(),Mockito.any())).thenReturn(price2);
+        Mockito.when(mockRepository.findByBrandIdAndProductId(Mockito.any(),Mockito.any())).thenReturn(Collections.singletonList(price2));
         Price result = priceService.findByApplicationDateBrandIdAndProductId(
                 LocalDateTime.parse("2020-06-14-16.00.00",formatter),1,35455);
         assertEquals(2,result.getPriceList());
@@ -62,7 +63,7 @@ public class PriceServiceTest {
 
     @Test
     public void test03__2020_06_14_2100_brandId_1_productId_35455() {
-        Mockito.when(mockRepository.findByApplicationDateBrandIdAndProductId(Mockito.any(),Mockito.any(),Mockito.any())).thenReturn(price1);
+        Mockito.when(mockRepository.findByBrandIdAndProductId(Mockito.any(),Mockito.any())).thenReturn(Collections.singletonList(price1));
         Price result = priceService.findByApplicationDateBrandIdAndProductId(
                 LocalDateTime.parse("2020-06-14-21.00.00",formatter),1,35455);
         assertEquals(1,result.getPriceList());
@@ -70,7 +71,7 @@ public class PriceServiceTest {
 
     @Test
     public void test04__2020_06_15_1000_brandId_1_productId_35455() {
-        Mockito.when(mockRepository.findByApplicationDateBrandIdAndProductId(Mockito.any(),Mockito.any(),Mockito.any())).thenReturn(price3);
+        Mockito.when(mockRepository.findByBrandIdAndProductId(Mockito.any(),Mockito.any())).thenReturn(Collections.singletonList(price3));
         Price result = priceService.findByApplicationDateBrandIdAndProductId(
                 LocalDateTime.parse("2020-06-15-10.00.00",formatter),1,35455);
         assertEquals(3,result.getPriceList());
@@ -78,7 +79,7 @@ public class PriceServiceTest {
 
     @Test
     public void test05__2020_06_16_2100_brandId_1_productId_35455() {
-        Mockito.when(mockRepository.findByApplicationDateBrandIdAndProductId(Mockito.any(),Mockito.any(),Mockito.any())).thenReturn(price4);
+        Mockito.when(mockRepository.findByBrandIdAndProductId(Mockito.any(),Mockito.any())).thenReturn(Collections.singletonList(price4));
         Price result = priceService.findByApplicationDateBrandIdAndProductId(
                 LocalDateTime.parse("2020-06-16-21.00.00",formatter),1,35455);
         assertEquals(4,result.getPriceList());

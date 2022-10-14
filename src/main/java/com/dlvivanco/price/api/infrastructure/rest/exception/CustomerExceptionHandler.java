@@ -1,7 +1,7 @@
 package com.dlvivanco.price.api.infrastructure.rest.exception;
 
 import com.dlvivanco.price.api.domain.exception.PriceNotFoundException;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+import com.dlvivanco.price.api.domain.exception.ProductNotFoundException;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,13 @@ import java.util.stream.Collectors;
 public class CustomerExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(PriceNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleUserNotFoundException(PriceNotFoundException ex) {
+    public ResponseEntity<ErrorResponse> handlePriceNotFoundException(PriceNotFoundException ex) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND.getReasonPhrase(), List.of(ex.getLocalizedMessage()));
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+    
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleProductNotFoundException(ProductNotFoundException ex) {
         ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND.getReasonPhrase(), List.of(ex.getLocalizedMessage()));
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
@@ -64,7 +70,7 @@ public class CustomerExceptionHandler extends ResponseEntityExceptionHandler {
                 .getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .map( err -> String.format("%s %s", err.getField(), err.getDefaultMessage()))
                 .collect(Collectors.toList());
         ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.getReasonPhrase(), errorList);
         return ResponseEntity.badRequest().body(error);
@@ -77,7 +83,7 @@ public class CustomerExceptionHandler extends ResponseEntityExceptionHandler {
                 .getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .map( err -> String.format("%s %s", err.getField(), err.getDefaultMessage()))
                 .collect(Collectors.toList());
         ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.getReasonPhrase(), errorList);
         return ResponseEntity.badRequest().body(error);

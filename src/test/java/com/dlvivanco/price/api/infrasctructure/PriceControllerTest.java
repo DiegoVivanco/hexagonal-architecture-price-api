@@ -124,9 +124,17 @@ public class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Test 7: Not Found cuando no se le pasa un brandId diferente de 1")
-    public void givenANotFound_whenBrandIdNotEqualsTo1() throws Exception {
+    @DisplayName("Test 7: Producto No encontrado cuando no se le pasa un brandId diferente de 1")
+    public void givenAProductNotFound_whenBrandIdNotEqualsTo1() throws Exception {
         this.mockMvc.perform(get("/price?applicationDate=2020-06-16-21:00:00&productId=35455&brandId=5"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @DisplayName("Test 8: Precio No encontrado cuando no se le pasa una fecha diferente")
+    public void givenAPriceNotFound_whenBrandIdNotEqualsTo1() throws Exception {
+        this.mockMvc.perform(get("/price?applicationDate=2022-06-16-21:00:00&productId=35455&brandId=1"))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }

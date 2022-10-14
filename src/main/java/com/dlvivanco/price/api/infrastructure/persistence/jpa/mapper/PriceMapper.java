@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class PriceMapper {
 
-    public Price toDto(PriceEntity priceEntity){
+    public static Price toDomain(PriceEntity priceEntity){
         if(priceEntity == null){
             return null;
         }
@@ -19,6 +19,7 @@ public class PriceMapper {
         price.brandId(priceEntity.getBrandId());
         price.startDate(priceEntity.getStartDate());
         price.endDate(priceEntity.getEndDate());
+        price.priority(priceEntity.getPriority());
         price.priceList(priceEntity.getPriceList());
         price.productId(priceEntity.getProductId());
         price.price(priceEntity.getPrice());
